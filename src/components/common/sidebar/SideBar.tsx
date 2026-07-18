@@ -6,6 +6,7 @@ import React from "react";
 interface Page {
   title: string;
   link: string;
+  child?: string[];
 }
 
 interface SideBarProps {
@@ -24,20 +25,23 @@ const SideBar = ({ pages }: SideBarProps) => {
   };
 
   return (
-    <aside className="p-4  bg-neutral-bg1-default border-r border-pt-neutral-t1-st5-default w-60">
+    <aside className="md:p-4 p-1  bg-neutral-bg1-default border-r border-pt-neutral-t1-st5-default md:w-60 w-10">
       <nav>
         <ul className="flex h-screen flex-col gap-4 overflow-auto">
           {pages.map((item) => {
-            const isActive = pathname === item.link;
+            const isActive =
+              pathname === item.link ||
+              item.child?.find((item) => pathname.includes(item));
 
             return (
               <li className="grid" key={item.link}>
                 <Link
                   href={item.link}
                   aria-current={isActive ? "page" : undefined}
-                  className={getLinkClasses(isActive)}
+                  className={getLinkClasses(isActive ? true : false)}
                 >
-                  {item.title}
+                  <span className="md:hidden">{item.title[0]}</span>
+                  <span className="md:flex hidden">{item.title}</span>
                 </Link>
               </li>
             );

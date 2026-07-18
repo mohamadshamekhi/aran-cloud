@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 const SectionContent = ({ children }: { children: ReactNode }) => {
-  return <section className="p-6">{children}</section>;
+  return <section className="md:p-6 p-2">{children}</section>;
 };
 
 export default SectionContent;

@@ -36,19 +36,19 @@ const TableRow = ({
           {article.id}
         </span>
       </td>
-      <td className="px-3 flex  justify-start items-center w-[10.8%]">
+      <td className="px-3 flex  justify-start items-center min-w-25 w-[10.8%]">
         <span className="h-6 overflow-hidden text-body-1">{article.title}</span>
       </td>
       <td className="px-3 flex justify-start items-center w-[17.3%]">
         {article.userId}
       </td>
-      <td className="px-3 flex justify-start items-center w-[10.1%]">
+      <td className="px-3 flex justify-start items-center min-w-25 w-[10.1%]">
         <span className="h-6 overflow-hidden">{article.tags.join(", ")}</span>
       </td>
       <td className="px-3 flex justify-start items-center flex-1">
         <p className="h-6 overflow-hidden">{article.body}</p>
       </td>
-      <td className="px-3 flex justify-between items-center w-[16.6%]">
+      <td className="px-3 flex justify-between items-center min-w-25 w-[16.6%]">
         <span>date</span>
         <DropDown
           items={[

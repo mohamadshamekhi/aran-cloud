@@ -29,6 +29,7 @@ const DetailPage = ({ article }: { article?: ArticleDetailResponse }) => {
   const [errors, setErrors] = useState<
     Partial<Record<keyof FormValues, string>>
   >({});
+  const [tagError, setTagError] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [newTags, setNewTags] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
@@ -56,8 +57,14 @@ const DetailPage = ({ article }: { article?: ArticleDetailResponse }) => {
 
   const submitData = (data: any) => {
     if (tags.length === 0) {
+      setTagError("Tag is required.");
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
       return;
     }
+    setTagError("");
     if (article?.id) {
       updateMutate(
         {
@@ -99,17 +106,19 @@ const DetailPage = ({ article }: { article?: ArticleDetailResponse }) => {
   };
 
   return (
-    <section className="flex gap-6">
+    <section className="flex lg:flex-row flex-col gap-6">
       {showToast && (
         <Toast
-          variant={"success"}
+          variant={tagError ? "error" : "success"}
           position={"top-center"}
           content={
-            article?.id
+            tagError
+              ? tagError
+              : article?.id
               ? "Article updated successfuly"
               : "Article created successfuly"
           }
-          boldText="Well done!"
+          boldText={!tagError ? "Well done!" : ""}
         />
       )}
       <section className="flex-1">
@@ -163,7 +172,7 @@ const DetailPage = ({ article }: { article?: ArticleDetailResponse }) => {
           </Form>
         </Section>
       </section>
-      <section className="w-94">
+      <section className="lg:w-94">
         <Section>
           <div className="grid gap-6">
             <Field label="Tags">

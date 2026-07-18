@@ -16,19 +16,19 @@ const Header = () => {
 
   return (
     <header className="flex py-3 bg-neutral-bg1-default px-6 border-b border-neutral-st3-default  items-center">
-      <div className="flex-1/3">
+      <div className="md:flex-1/3 items-center  flex-1/2">
         <span className="text-body-2 text-neutral-fg1-default">Welcome </span>
         <span className="text-body-2-strong text-neutral-fg1-default">
           {userDetail?.firstName}
         </span>
       </div>
-      <div className="flex-1/3 flex justify-center">
+      <div className="flex-1/3  md:flex hidden justify-center">
         <span className="h-10 text-neutral-fg1-default text-body-1 bg-neutral-bg2-default rounded-sm flex items-center px-3">
           Arvancloud Challenge
         </span>
       </div>
 
-      <div className="flex-1/3 flex justify-end">
+      <div className="md:flex-1/3 flex-1/2 flex justify-end">
         <div className="w-fit">
           <Button
             onClick={() => {

@@ -14,7 +14,7 @@ function Pagination({
   disable?: boolean;
 }) {
   const baseClass =
-    "w-8 h-8 rounded-md flex items-center justify-center text-body-2-strong  disabled:cursor-not-allowed";
+    "md:w-8 md:h-8 w-5 h-5 rounded-md flex items-center justify-center text-body-2-strong  disabled:cursor-not-allowed";
   const defaultClass =
     "cursor-pointer  not-disabled:active:bg-neutral-bg1-press not-disabled:active:text-neutral-fg1-press disabled:text-neutral-fg1-disable  text-neutral-fg1-default not-disabled:hover:bg-neutral-bg1-hover not-disabled:hover:text-neutral-fg1-hover";
   const activeClass =

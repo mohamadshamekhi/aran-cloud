@@ -15,7 +15,7 @@ const ArticlePagination = ({
 }) => {
   const router = useRouter();
   return (
-    <div className="flex   justify-end">
+    <div className="flex   md:justify-end justify-center">
       <Pagination
         current={current}
         onChange={(p) => {

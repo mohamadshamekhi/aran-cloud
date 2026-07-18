@@ -27,7 +27,7 @@ const AuthClientPage = () => {
   >({});
 
   return (
-    <section className="flex justify-center items-center min-h-screen">
+    <section className="flex md:px-0 px-5 justify-center items-center min-h-screen">
       <section className="w-120">
         <Section title="Sign in">
           <Form
