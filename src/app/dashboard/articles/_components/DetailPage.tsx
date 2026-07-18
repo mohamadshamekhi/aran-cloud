@@ -157,6 +157,7 @@ const DetailPage = ({ article }: { article?: ArticleDetailResponse }) => {
                   error={errors?.body}
                   name="body"
                   className="h-40"
+                  is_textarea
                 />
               </Field>
             </div>

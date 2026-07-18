@@ -26,10 +26,11 @@ const inputVariants = cva(
 );
 
 interface InputVariants
-  extends React.InputHTMLAttributes<HTMLInputElement>,
+  extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
     VariantProps<typeof inputVariants> {
   error?: string;
   onEnter?: (_v: string) => void;
+  is_textarea?: boolean;
 }
 
 const TextInput = ({
@@ -37,9 +38,25 @@ const TextInput = ({
   error,
   className,
   onEnter,
+  is_textarea,
   ...props
 }: InputVariants) => {
   const innerRef = useRef<HTMLInputElement>(null);
+
+  if (is_textarea) {
+    return (
+      <textarea
+        className={cn(
+          inputVariants({
+            inputSize,
+            variant: error ? "error" : "default",
+            className,
+          }) + "  "
+        )}
+        {...props}
+      />
+    );
+  }
   return (
     <input
       type="text"
